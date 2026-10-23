@@ -1,0 +1,152 @@
+p {
+    all: unset;
+    margin-block: 1rem;
+    color: #202020;
+}
+
+html {
+    background: linear-gradient(#cbe1ee, #c5d7e3);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    height: 100dvh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    & li::marker {
+        display: none;
+        content: "";
+    }
+}
+
+.title {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin: 2.5rem;
+    color: white;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap);
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: var(--gap);
+}
+
+.card {
+    background-color: white;
+    border-radius: 0.45rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    min-width: 28ch;
+    align-items: center;
+    gap: 1.5rem;
+    transition: opacity 100ms ease-in;
+
+    & .card_top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & .card_name {
+            font-size: 2rem;
+        }
+
+        & .card_price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+
+            & .price {
+                color: black;
+                font-weight: bold;
+                font-size: 2.75rem;
+                transition: color 100ms ease-in;
+            }
+
+            & .per {
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                color: #999;
+            }
+        }
+    }
+
+    & hr {
+        width: 100%;
+        color: rgba(238, 238, 238, 0.1);
+    }
+
+    & .card_features {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
+        gap: 0.75rem;
+        color: #aaa;
+
+        & .emph {
+            font-weight: 600;
+            color: black;
+        }
+    }
+
+    & .card_button {
+        font-weight: bold;
+        text-transform: uppercase;
+        color: black;
+        background-color: white;
+        padding: 1rem 2rem;
+        border: 1px solid #303030;
+        cursor: pointer;
+        box-sizing: border-box;
+        border-radius: 0.45rem;
+        width: 100%;
+        transition:
+            border 100ms ease-in,
+            background-color 100ms ease-in,
+            color 100ms ease-in;
+
+        &:hover {
+            border: 1px solid transparent;
+            background-color: #e76c5d;
+            color: white;
+        }
+    }
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 16px 4px;
+    }
+    &:hover .card_price .price {
+        color: #e76c5d;
+    }
+}
+
+.card.popular {
+    position: relative;
+    & .corner {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+*:has(> :hover) > .card:not(:hover) {
+    opacity: 0.5;
+}

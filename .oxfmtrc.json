@@ -1,0 +1,5 @@
+{
+    "$schema": "https://cdn.jsdelivr.net/npm/oxfmt@0.74.0/configuration_schema.json",
+    "tabWidth": 4,
+    "printWidth": 120
+}
